@@ -4,7 +4,7 @@ ARG BRANCH=master
 ARG OPENSTACK_TAG=stable/pike
 ARG OS_FAULTS_TAG=0.1.16
 ARG ONAP_UTILS_TAG=master
-ARG ONAP_SUITE_PATH=/var/opt/OpenECOMP_ETE/robot/testsuite/robot/testsuites
+ARG ONAP_SUITE_PATH=/var/opt/OpenECOMP_ETE/robot/testsuite/robot/testsuites/
 
 COPY thirdparty-requirements.txt thirdparty-requirements.txt
 RUN mkdir -p $ONAP_SUITE_PATH
