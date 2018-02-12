@@ -3,7 +3,7 @@ FROM colvert22/functest-core
 ARG BRANCH=master
 ARG OPENSTACK_TAG=stable/pike
 ARG OS_FAULTS_TAG=0.1.16
-ARG ONAP_UTILS_TAG=master
+ARG ONAP_TAG=master
 ARG ONAP_SUITE_PATH=/var/opt/OpenECOMP_ETE
 
 COPY thirdparty-requirements.txt thirdparty-requirements.txt
@@ -23,11 +23,11 @@ RUN apk --no-cache add --virtual .build-deps --update \
     pip install --no-cache-dir --src /src -cupper-constraints.txt \
         -chttps://git.opnfv.org/functest/plain/upper-constraints.txt?h=$BRANCH \
         tempest /src/os-faults && \
+    git clone --depth 1 https://git.onap.org/testsuite -b $ONAP_TAG $ONAP_SUITE_PATH && \
+    git clone --depth 1 https://git.onap.org/testsuite/properties -b $ONAP_TAG /share/config && \
+    git clone --depth 1 https://git.onap.org/testsuite/python-testing-utils -b $ONAP_TAG /src/testing-utils \
+        (cd /src/testing-utils && pip install -e .) && \
     apk del .build-deps
-RUN git clone --depth 1 https://git.onap.org/testsuite -b $ONAP_UTILS_TAG $ONAP_SUITE_PATH
-RUN git clone --depth 1 https://git.onap.org/testsuite/properties -b $ONAP_UTILS_TAG /share/config
-RUN git clone --depth 1 https://git.onap.org/testsuite/python-testing-utils -b $ONAP_UTILS_TAG /src/testing-utils &&\
-     (cd /src/testing-utils && pip install -e .)
 COPY testcases.yaml /usr/lib/python2.7/site-packages/functest/ci/testcases.yaml
 COPY *.robot $ONAP_SUITE_PATH/robot/testsuites/
 CMD ["run_tests", "-t", "all"]

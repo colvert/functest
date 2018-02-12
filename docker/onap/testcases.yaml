@@ -23,7 +23,7 @@ tiers:
                     class: 'RobotFramework'
                     args:
                         suites:
-                            - /var/opt/OpenECOMP_ETE/robot/testsuite/robot/testsuites/robot_healthcheck.robot
+                            - /var/opt/OpenECOMP_ETE/testsuites/robot_healthcheck.robot
                         pythonpath:
                             - /usr/local/lib/python-testing-utils/eteutils
                         variablefile:
@@ -47,7 +47,7 @@ tiers:
                     class: 'RobotFramework'
                     args:
                         suites:
-                            - /var/opt/OpenECOMP_ETE/robot/testsuite/robot/testsuites/robot_dcae.robot
+                            - /var/opt/OpenECOMP_ETE/robot/testsuites/robot_dcae.robot
                         pythonpath:
                             - /usr/local/lib/python-testing-utils/eteutils
                         variablefile:
@@ -70,7 +70,7 @@ tiers:
                     class: 'RobotFramework'
                     args:
                         suites:
-                            - /var/opt/OpenECOMP_ETE/robot/testsuite/robot/testsuites/robot_multicloud.robot
+                            - /var/opt/OpenECOMP_ETE/robot/testsuites/robot_multicloud.robot
                         pythonpath:
                             - /usr/local/lib/python-testing-utils/eteutils
                         variablefile:
@@ -94,7 +94,7 @@ tiers:
                     class: 'RobotFramework'
                     args:
                         suites:
-                            - /var/opt/OpenECOMP_ETE/robot/testsuite/robot/testsuites/robot_3rdparty.robot
+                            - /var/opt/OpenECOMP_ETE/robot/testsuites/robot_3rdparty.robot
                         pythonpath:
                             - /usr/local/lib/python-testing-utils/eteutils
                         variablefile:
