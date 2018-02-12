@@ -25,8 +25,8 @@ RUN apk --no-cache add --virtual .build-deps --update \
         tempest /src/os-faults && \
     git clone --depth 1 https://git.onap.org/testsuite -b $ONAP_TAG $ONAP_SUITE_PATH && \
     git clone --depth 1 https://git.onap.org/testsuite/properties -b $ONAP_TAG /share/config && \
-    git clone --depth 1 https://git.onap.org/testsuite/python-testing-utils -b $ONAP_TAG /src/testing-utils \
-        (cd /src/testing-utils && pip install -e .) && \
+    git clone --depth 1 https://git.onap.org/testsuite/python-testing-utils -b $ONAP_TAG /src/testing-utils && \
+    (cd /src/testing-utils && pip install -e .) && \
     apk del .build-deps
 COPY testcases.yaml /usr/lib/python2.7/site-packages/functest/ci/testcases.yaml
 COPY *.robot $ONAP_SUITE_PATH/robot/testsuites/
