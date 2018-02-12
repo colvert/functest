@@ -1,8 +1,5 @@
 FROM opnfv/functest-core
 
-ENV http_proxy=http://proxy:8080
-ENV https_proxy=http://proxy:8080
-
 ARG BRANCH=master
 ARG OPENSTACK_TAG=stable/pike
 ARG OS_FAULTS_TAG=0.1.16
