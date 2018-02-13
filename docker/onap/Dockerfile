@@ -1,8 +1,5 @@
 FROM colvert22/functest-core
 
-ENV HTTP_PROXY=http://proxy:8080
-ENV HTTPS_PROXY=https://proxy:8080
-
 ARG BRANCH=master
 ARG OPENSTACK_TAG=stable/pike
 ARG OS_FAULTS_TAG=0.1.16
