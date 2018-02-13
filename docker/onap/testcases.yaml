@@ -23,7 +23,7 @@ tiers:
                     class: 'RobotFramework'
                     args:
                         suites:
-                            - /var/opt/OpenECOMP_ETE/testsuites/robot_healthcheck.robot
+                            - /var/opt/OpenECOMP_ETE/robot/testsuites/robot_healthcheck.robot
                         pythonpath:
                             - /usr/local/lib/python-testing-utils/eteutils
                         variablefile:
@@ -37,7 +37,7 @@ tiers:
                 criteria: 100
                 blocking: false
                 description: >-
-                    This test case verifies iDCAE api
+                    This test case verifies DCAE api
                     based on the default robot tests
                 dependencies:
                     installer: ''

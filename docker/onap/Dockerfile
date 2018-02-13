@@ -1,5 +1,8 @@
 FROM colvert22/functest-core
 
+ENV HTTP_PROXY=http://proxy:8080
+ENV HTTPS_PROXY=https://proxy:8080
+
 ARG BRANCH=master
 ARG OPENSTACK_TAG=stable/pike
 ARG OS_FAULTS_TAG=0.1.16
@@ -22,12 +25,15 @@ RUN apk --no-cache add --virtual .build-deps --update \
     update-requirements -s --source /src/openstack-requirements /src/os-faults/ && \
     pip install --no-cache-dir --src /src -cupper-constraints.txt \
         -chttps://git.opnfv.org/functest/plain/upper-constraints.txt?h=$BRANCH \
-        tempest /src/os-faults && \
+        tempest /src/os-faults -rthirdparty-requirements.txt && \
     git clone --depth 1 https://git.onap.org/testsuite -b $ONAP_TAG $ONAP_SUITE_PATH && \
     git clone --depth 1 https://git.onap.org/testsuite/properties -b $ONAP_TAG /share/config && \
     git clone --depth 1 https://git.onap.org/testsuite/python-testing-utils -b $ONAP_TAG /src/testing-utils && \
     (cd /src/testing-utils && pip install -e .) && \
-    apk del .build-deps
+    apk del .build-deps && \
+    rm -r upper-constraints.txt thirdparty-requirements.txt /src/testing-utils/.git \
+        /src/os-faults
+
 COPY testcases.yaml /usr/lib/python2.7/site-packages/functest/ci/testcases.yaml
 COPY *.robot $ONAP_SUITE_PATH/robot/testsuites/
 CMD ["run_tests", "-t", "all"]
