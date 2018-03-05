@@ -33,6 +33,6 @@ RUN apk --no-cache add --virtual .build-deps --update \
     rm -r upper-constraints.txt thirdparty-requirements.txt /src/testing-utils/.git \
         /src/os-faults
 
-COPY testcases.yaml /usr/lib/python2.7/site-packages/functest/ci/testcases.yaml
+COPY testcases.yaml /usr/lib/python2.7/site-packages/xtesting/ci/testcases.yaml
 COPY *.robot $ONAP_SUITE_PATH/robot/testsuites/
 CMD ["run_tests", "-t", "all"]

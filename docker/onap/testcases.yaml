@@ -19,7 +19,7 @@ tiers:
                     installer: ''
                     scenario: ''
                 run:
-                    module: 'functest.core.robotframework'
+                    module: 'xtesting.core.robotframework'
                     class: 'RobotFramework'
                     args:
                         suites:
@@ -43,7 +43,7 @@ tiers:
                     installer: ''
                     scenario: ''
                 run:
-                    module: 'functest.core.robotframework'
+                    module: 'xtesting.core.robotframework'
                     class: 'RobotFramework'
                     args:
                         suites:
@@ -67,7 +67,7 @@ tiers:
                     installer: ''
                     scenario: ''
                 run:
-                    module: 'functest.core.robotframework'
+                    module: 'xtesting.core.robotframework'
                     class: 'RobotFramework'
                     args:
                         suites:
@@ -90,7 +90,7 @@ tiers:
                     installer: ''
                     scenario: ''
                 run:
-                    module: 'functest.core.robotframework'
+                    module: 'xtesting.core.robotframework'
                     class: 'RobotFramework'
                     args:
                         suites:
@@ -114,7 +114,7 @@ tiers:
                     installer: ''
                     scenario: ''
                 run:
-                    module: 'functest.core.robotframework'
+                    module: 'xtesting.core.robotframework'
                     class: 'RobotFramework'
                     args:
                         suites:
