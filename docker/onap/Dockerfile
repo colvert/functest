@@ -6,6 +6,8 @@ ARG OS_FAULTS_TAG=0.1.16
 ARG ONAP_TAG=master
 ARG ONAP_SUITE_PATH=/var/opt/OpenECOMP_ETE
 
+ENV PYTHONPATH $PYTHONPATH:/src/testing-utils/eteutils
+
 COPY thirdparty-requirements.txt thirdparty-requirements.txt
 RUN mkdir -p $ONAP_SUITE_PATH
 

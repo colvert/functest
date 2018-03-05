@@ -23,7 +23,31 @@ tiers:
                     class: 'RobotFramework'
                     args:
                         suites:
-                            - /var/opt/OpenECOMP_ETE/robot/testsuites/robot_healthcheck.robot
+                            - /var/opt/OpenECOMP_ETE/robot/testsuites/robot-healthcheck-core.robot
+                        pythonpath:
+                            - /usr/local/lib/python-testing-utils/eteutils
+                        variablefile:
+                            - '/share/config/integration_robot_properties.py'
+                            - '/share/config/integration_vm_properties.py'
+                            - '/share/config/integration_preload_parameters.py'
+
+            -
+                case_name: robot_api
+                project_name: functest
+                criteria: 100
+                blocking: false
+                description: >-
+                    This test case verifies DCAE api
+                    based on the default robot tests
+                dependencies:
+                    installer: ''
+                    scenario: ''
+                run:
+                    module: 'functest.core.robotframework'
+                    class: 'RobotFramework'
+                    args:
+                        suites:
+                            - /var/opt/OpenECOMP_ETE/robot/testsuites/robot-api.robot
                         pythonpath:
                             - /usr/local/lib/python-testing-utils/eteutils
                         variablefile:
@@ -47,7 +71,7 @@ tiers:
                     class: 'RobotFramework'
                     args:
                         suites:
-                            - /var/opt/OpenECOMP_ETE/robot/testsuites/robot_dcae.robot
+                            - /var/opt/OpenECOMP_ETE/robot/testsuites/robot-dcae.robot
                         pythonpath:
                             - /usr/local/lib/python-testing-utils/eteutils
                         variablefile:
@@ -70,7 +94,7 @@ tiers:
                     class: 'RobotFramework'
                     args:
                         suites:
-                            - /var/opt/OpenECOMP_ETE/robot/testsuites/robot_multicloud.robot
+                            - /var/opt/OpenECOMP_ETE/robot/testsuites/robot-multicloud.robot
                         pythonpath:
                             - /usr/local/lib/python-testing-utils/eteutils
                         variablefile:
@@ -94,7 +118,7 @@ tiers:
                     class: 'RobotFramework'
                     args:
                         suites:
-                            - /var/opt/OpenECOMP_ETE/robot/testsuites/robot_3rdparty.robot
+                            - /var/opt/OpenECOMP_ETE/robot/testsuites/robot-3rdparty.robot
                         pythonpath:
                             - /usr/local/lib/python-testing-utils/eteutils
                         variablefile:
